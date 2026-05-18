@@ -48,17 +48,39 @@
   </p>
 </div>
 
-<details class="section" id="fotoalbum">
-  <summary><b>📸 Fotoalbum öffnen</b></summary>
+<div class="section" id="fotoalbum">
+  <h3>📸 Fotoalbum</h3>
+  <p>Hier findest du ihre Bilder nach Lebensabschnitten sortiert.</p>
 
-  <p>Klicke auf ein Bild, um es groß anzusehen.</p>
+  <!-- TEEN -->
+  <details class="section">
+    <summary><b>junge Erwachsene</b></summary>
+    <div class="album-grid gallery" data-gallery="teen">
+      <img src="../images/gen1/teen/teen1.png" alt="Teen 1">
+      <img src="../images/gen1/teen/teen2.png" alt="Teen 2">
+      <img src="../images/gen1/teen/teen3.png" alt="Teen 3">
+    </div>
+  </details>
 
-  <div class="album-grid">
-    <img src="../images/sim1.png" alt="Foto 1">
-    <img src="../images/sim1.png" alt="Foto 2">
-    <img src="../images/sim1.png" alt="Foto 3">
-  </div>
-</details>
+  <!-- ADULT -->
+  <details class="section">
+    <summary><b>Erwachsene</b></summary>
+    <div class="album-grid gallery" data-gallery="adult">
+      <img src="../images/gen1/adult/adult1.png" alt="Adult 1">
+      <img src="../images/gen1/adult/adult2.png" alt="Adult 2">
+    </div>
+  </details>
+
+  <!-- HOCHZEIT -->
+  <details class="section">
+    <summary><b>Seniorin</b></summary>
+    <div class="album-grid gallery" data-gallery="hochzeit">
+      <img src="../images/gen1/hochzeit/hochzeit1.png" alt="Hochzeit 1">
+      <img src="../images/gen1/hochzeit/hochzeit2.png" alt="Hochzeit 2">
+    </div>
+  </details>
+
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -67,57 +89,3 @@
   <img id="lightboxImg" src="" alt="Großes Foto">
   <span class="arrow next" id="nextBtn">&#10095;</span>
 </div>
-
-<script>
-  const images = document.querySelectorAll(".album-grid img");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-
-  const closeBtn = document.getElementById("closeBtn");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-
-  let currentIndex = 0;
-
-  function openLightbox(index) {
-    currentIndex = index;
-    lightboxImg.src = images[currentIndex].src;
-    lightbox.style.display = "flex";
-  }
-
-  function closeLightbox() {
-    lightbox.style.display = "none";
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
-    lightboxImg.src = images[currentIndex].src;
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    lightboxImg.src = images[currentIndex].src;
-  }
-
-  images.forEach((img, index) => {
-    img.addEventListener("click", () => openLightbox(index));
-  });
-
-  closeBtn.addEventListener("click", closeLightbox);
-  nextBtn.addEventListener("click", showNext);
-  prevBtn.addEventListener("click", showPrev);
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.style.display === "flex") {
-      if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") showNext();
-      if (e.key === "ArrowLeft") showPrev();
-    }
-  });
-</script>
