@@ -289,94 +289,93 @@ footer {
 }
 
 /* ============================
-   2000s SIM PHONE STYLE
+   2000s SIM PHONE STYLE (FIXED)
 ============================ */
 
 .phone-frame {
-  width: 430px;
-  height: 820px;
-  border-radius: 60px;
-  padding: 22px;
+  width: 420px;
+  height: 720px; /* kürzer */
+  border-radius: 55px;
+  padding: 20px;
   position: relative;
   box-shadow: 0px 0px 40px rgba(0,0,0,0.9);
   border: 4px solid rgba(255,255,255,0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  overflow: visible; /* wichtig damit Charm sichtbar ist */
 }
 
-/* Farb-Theme für diesen Sim */
+/* Farb-Theme */
 .phone-blue {
   background: linear-gradient(to bottom, #4cb3ff, #09294a);
 }
 
-/* Sticker Sterne */
-.phone-frame::before,
-.phone-frame::after {
+/* ===== Sticker Sterne (nur 3 Stück) ===== */
+.phone-frame::before {
   content: "★";
   position: absolute;
+  top: 80px;
+  left: 35px;
   color: rgba(255,255,255,0.75);
-  font-size: 22px;
+  font-size: 18px;
   text-shadow: 0px 0px 6px rgba(255,255,255,0.35);
+  transform: rotate(-12deg);
   opacity: 0.9;
 }
 
-.phone-frame::before {
-  top: 85px;
-  left: 45px;
-  transform: rotate(-12deg);
-}
-
 .phone-frame::after {
-  top: 155px;
-  right: 55px;
-  font-size: 18px;
-  transform: rotate(20deg);
-}
-
-.phone-top::before {
   content: "★";
   position: absolute;
-  left: 40px;
-  top: 18px;
-  font-size: 15px;
-  color: rgba(255,255,255,0.6);
-  transform: rotate(15deg);
-}
-
-.phone-top::after {
-  content: "★";
-  position: absolute;
+  top: 160px;
   right: 40px;
-  top: 45px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  transform: rotate(-18deg);
+  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.3);
+  transform: rotate(18deg);
+  opacity: 0.9;
 }
 
-/* Charm/Kette */
+/* dritter Stern */
+.phone-brand::after {
+  content: "★";
+  margin-left: 10px;
+  color: rgba(255,255,255,0.55);
+  font-size: 14px;
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.3);
+}
+
+/* ===== Charm / Kette ===== */
 .phone-charm {
   position: absolute;
-  left: -35px;
-  top: 190px;
+  left: -55px;
+  top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 10;
+  z-index: 50;
+  transform-origin: top center;
+  animation: charmSwing 2.8s ease-in-out infinite;
+}
+
+@keyframes charmSwing {
+  0%   { transform: rotate(-6deg); }
+  50%  { transform: rotate(8deg); }
+  100% { transform: rotate(-6deg); }
 }
 
 .charm-chain {
   width: 7px;
-  height: 95px;
-  background: rgba(255,255,255,0.65);
+  height: 110px;
+  background: rgba(255,255,255,0.75);
   border-radius: 20px;
   box-shadow: inset 0px 0px 6px rgba(0,0,0,0.6);
 }
 
+/* Seerobbe */
 .charm-seal {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   background: linear-gradient(to bottom, #ffffff, #bfc6cc);
   border-radius: 50%;
   margin-top: 8px;
@@ -388,11 +387,11 @@ footer {
 .charm-seal::before {
   content: "";
   position: absolute;
-  width: 32px;
-  height: 28px;
+  width: 34px;
+  height: 30px;
   background: linear-gradient(to bottom, #ffffff, #bfc6cc);
   border-radius: 50%;
-  top: -15px;
+  top: -16px;
   left: 9px;
   border: 2px solid rgba(0,0,0,0.25);
 }
@@ -400,14 +399,26 @@ footer {
 .charm-seal::after {
   content: "•  •";
   position: absolute;
-  top: 15px;
-  left: 12px;
+  top: 16px;
+  left: 13px;
   font-size: 18px;
   color: rgba(0,0,0,0.65);
   letter-spacing: 3px;
 }
 
-/* Top */
+/* Nase */
+.charm-seal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.charm-seal::marker {
+  display: none;
+}
+
+/* ===== Top ===== */
 .phone-top {
   width: 100%;
   display: flex;
@@ -415,11 +426,11 @@ footer {
   align-items: center;
   position: relative;
   margin-top: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .phone-speaker {
-  width: 180px;
+  width: 170px;
   height: 14px;
   background: rgba(0,0,0,0.55);
   border-radius: 20px;
@@ -436,12 +447,12 @@ footer {
   border: 2px solid rgba(255,255,255,0.2);
 }
 
-/* Screen */
+/* ===== Screen ===== */
 .phone-screen {
   width: 100%;
-  height: 540px;
+  height: 460px; /* groß, aber passt besser */
   background: black;
-  border-radius: 35px;
+  border-radius: 32px;
   overflow: hidden;
   border: 4px solid rgba(255,255,255,0.18);
   box-shadow: inset 0px 0px 18px rgba(0,0,0,0.85);
@@ -457,7 +468,7 @@ footer {
   object-fit: cover;
 }
 
-/* Like Bar */
+/* ===== Like Bar ===== */
 .like-bar {
   position: absolute;
   bottom: 18px;
@@ -493,10 +504,10 @@ footer {
   color: rgba(255,255,255,0.85);
 }
 
-/* Brand Text */
+/* ===== Brand ===== */
 .phone-brand {
   margin-top: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: bold;
   color: rgba(255,255,255,0.9);
   letter-spacing: 1px;
@@ -504,22 +515,21 @@ footer {
   text-shadow: 0px 0px 6px rgba(0,0,0,0.6);
 }
 
-/* Keyboard */
+/* ===== Keyboard ===== */
 .phone-keyboard {
   width: 92%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 9px;
+  gap: 8px;
   padding: 10px;
-  margin-top: 4px;
 }
 
 .key {
   background: rgba(255,255,255,0.12);
   border-radius: 14px;
-  height: 42px;
+  height: 40px;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   color: white;
   padding-top: 6px;
@@ -536,12 +546,12 @@ footer {
   color: rgba(255,255,255,0.7);
 }
 
-/* Home Button */
+/* ===== Home Button ===== */
 .phone-home {
-  width: 140px;
-  height: 40px;
+  width: 130px;
+  height: 34px;
   border-radius: 25px;
-  margin-top: 5px;
+  margin-top: 4px;
   background: rgba(0,0,0,0.35);
   border: 2px solid rgba(255,255,255,0.2);
   box-shadow: inset 0px 0px 12px rgba(0,0,0,0.8);
