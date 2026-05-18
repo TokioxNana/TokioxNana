@@ -1,27 +1,29 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
-  color: white;
+  background: linear-gradient(to bottom, #2b0a12, #0f0a0c);
+  color: #fff;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 35px 20px;
+  background: rgba(90, 10, 25, 0.65);
+  padding: 40px 20px;
   text-align: center;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
 }
 
 header h1 {
   margin: 0;
-  font-size: 42px;
+  font-size: 44px;
+  letter-spacing: 1px;
 }
 
 header p {
   margin-top: 10px;
   font-size: 18px;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 main {
@@ -32,10 +34,11 @@ main {
 
 .category {
   background-color: rgba(255, 255, 255, 0.06);
-  padding: 20px;
+  padding: 22px;
   border-radius: 18px;
   margin-bottom: 25px;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .category h2 {
@@ -45,9 +48,10 @@ main {
 
 details {
   margin-top: 15px;
-  background-color: rgba(0, 0, 0, 0.35);
+  background: rgba(60, 5, 18, 0.55);
   padding: 15px;
   border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 summary {
@@ -62,15 +66,16 @@ summary {
   gap: 15px;
   margin-top: 15px;
   padding: 15px;
-  background-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   text-decoration: none;
   color: white;
   transition: 0.2s;
+  border: 1px solid rgba(255,255,255,0.07);
 }
 
 .sim-card:hover {
-  background-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.14);
   transform: scale(1.02);
 }
 
@@ -79,7 +84,7 @@ summary {
   height: 90px;
   border-radius: 18px;
   object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.18);
 }
 
 .sim-card h3 {
@@ -89,14 +94,15 @@ summary {
 
 .sim-card p {
   margin: 5px 0 0;
-  color: #bbb;
+  color: rgba(255,255,255,0.75);
 }
 
 .back-link {
   display: inline-block;
   margin-bottom: 20px;
-  color: #bbb;
+  color: rgba(255,255,255,0.7);
   text-decoration: none;
+  font-weight: bold;
 }
 
 .back-link:hover {
@@ -104,40 +110,42 @@ summary {
 }
 
 .sim-profile {
-  background-color: rgba(255, 255, 255, 0.06);
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 22px;
   border-radius: 18px;
   display: flex;
   gap: 20px;
   align-items: center;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .sim-profile img {
-  width: 200px;
-  height: 200px;
+  width: 210px;
+  height: 210px;
   border-radius: 18px;
   object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.18);
 }
 
 .sim-info h2 {
   margin: 0;
-  font-size: 32px;
+  font-size: 34px;
 }
 
 .sim-info p {
   margin-top: 10px;
-  color: #bbb;
+  color: rgba(255,255,255,0.75);
   font-size: 16px;
 }
 
 .section {
   margin-top: 25px;
-  background-color: rgba(255, 255, 255, 0.06);
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 22px;
   border-radius: 18px;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.35);
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .section h3 {
@@ -148,6 +156,6 @@ summary {
 footer {
   text-align: center;
   padding: 25px;
-  color: #888;
+  color: rgba(255,255,255,0.55);
   font-size: 14px;
 }
