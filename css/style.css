@@ -492,3 +492,96 @@ footer {
   border: 2px solid rgba(255,255,255,0.2);
   box-shadow: inset 0px 0px 12px rgba(0,0,0,0.8);
 }
+
+/* ===== STICKER (SILBERNE STERNE) ===== */
+.phone-frame::before,
+.phone-frame::after {
+  content: "★";
+  position: absolute;
+  color: rgba(255,255,255,0.75);
+  font-size: 22px;
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.35);
+  transform: rotate(-10deg);
+  opacity: 0.9;
+}
+
+.phone-frame::before {
+  top: 85px;
+  left: 40px;
+}
+
+.phone-frame::after {
+  top: 140px;
+  right: 55px;
+  font-size: 18px;
+  transform: rotate(18deg);
+}
+
+/* extra Sterne */
+.phone-top::before {
+  content: "★";
+  position: absolute;
+  left: 35px;
+  top: 18px;
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  transform: rotate(12deg);
+}
+
+.phone-top::after {
+  content: "★";
+  position: absolute;
+  right: 35px;
+  top: 40px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  transform: rotate(-20deg);
+}
+
+/* ===== SILBERNE SEEROBBE ALS CHARM ===== */
+.charm-seal {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(to bottom, #ffffff, #bfc6cc);
+  border-radius: 50%;
+  margin-top: 8px;
+  position: relative;
+  border: 2px solid rgba(0,0,0,0.25);
+  box-shadow: 0px 0px 12px rgba(255,255,255,0.35);
+}
+
+/* Kopf oben */
+.charm-seal::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 26px;
+  background: linear-gradient(to bottom, #ffffff, #bfc6cc);
+  border-radius: 50%;
+  top: -14px;
+  left: 8px;
+  border: 2px solid rgba(0,0,0,0.25);
+}
+
+/* Augen + Nase */
+.charm-seal::after {
+  content: "•  •";
+  position: absolute;
+  top: 14px;
+  left: 11px;
+  font-size: 18px;
+  color: rgba(0,0,0,0.65);
+  letter-spacing: 3px;
+}
+
+/* kleine Nase als Punkt */
+.charm-seal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.charm-seal span {
+  display: none;
+}
