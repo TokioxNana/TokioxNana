@@ -181,3 +181,24 @@ footer {
   transform: scale(1.05);
   background: linear-gradient(to right, #9b1535, #5a0a1f);
 }
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.album-grid img {
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.15);
+  transition: 0.2s;
+}
+
+.album-grid img:hover {
+  transform: scale(1.03);
+  border: 2px solid rgba(255,255,255,0.35);
+}
