@@ -150,14 +150,29 @@
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
 
+  const likeBtn = document.getElementById("likeBtn");
+  const likeCount = document.getElementById("likeCount");
+
   let currentGalleryImages = [];
   let currentIndex = 0;
+
+  function updateLikeUI() {
+    const imgSrc = currentGalleryImages[currentIndex].src;
+    const savedLikes = localStorage.getItem("likes_" + imgSrc);
+
+    if (savedLikes) {
+      likeCount.textContent = savedLikes;
+    } else {
+      likeCount.textContent = "0";
+    }
+  }
 
   function openLightbox(images, index) {
     currentGalleryImages = images;
     currentIndex = index;
     lightboxImg.src = currentGalleryImages[currentIndex].src;
     lightbox.style.display = "flex";
+    updateLikeUI();
   }
 
   function closeLightbox() {
@@ -167,13 +182,16 @@
   function showNext() {
     currentIndex = (currentIndex + 1) % currentGalleryImages.length;
     lightboxImg.src = currentGalleryImages[currentIndex].src;
+    updateLikeUI();
   }
 
   function showPrev() {
     currentIndex = (currentIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
     lightboxImg.src = currentGalleryImages[currentIndex].src;
+    updateLikeUI();
   }
 
+  // Klick auf Bilder
   document.querySelectorAll(".gallery").forEach((gallery) => {
     const imgs = Array.from(gallery.querySelectorAll("img"));
 
@@ -182,14 +200,30 @@
     });
   });
 
+  // Buttons
   closeBtn.addEventListener("click", closeLightbox);
   nextBtn.addEventListener("click", showNext);
   prevBtn.addEventListener("click", showPrev);
 
+  // Like Button
+  likeBtn.addEventListener("click", () => {
+    const imgSrc = currentGalleryImages[currentIndex].src;
+    let currentLikes = localStorage.getItem("likes_" + imgSrc);
+
+    if (!currentLikes) currentLikes = 0;
+
+    currentLikes = parseInt(currentLikes) + 1;
+    localStorage.setItem("likes_" + imgSrc, currentLikes);
+
+    likeCount.textContent = currentLikes;
+  });
+
+  // Klick auf Hintergrund schließt
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 
+  // Tastatur Navigation
   document.addEventListener("keydown", (e) => {
     if (lightbox.style.display === "flex") {
       if (e.key === "Escape") closeLightbox();
