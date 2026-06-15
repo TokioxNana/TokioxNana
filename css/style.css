@@ -556,3 +556,46 @@ footer {
   border: 2px solid rgba(255,255,255,0.2);
   box-shadow: inset 0px 0px 12px rgba(0,0,0,0.8);
 }
+
+/* ==========================
+   BEZIEHUNGEN
+========================== */
+
+.relationship-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.relationship-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  padding: 14px 18px;
+  border-radius: 15px;
+
+  transition: 0.3s;
+}
+
+.relationship-card:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(5px);
+}
+
+.relationship-card span {
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.relationship-card strong {
+  font-size: 17px;
+}
