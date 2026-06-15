@@ -599,3 +599,53 @@ footer {
 .relationship-card strong {
   font-size: 17px;
 }
+
+/* ==========================
+   RELATIONSHIP V2
+========================== */
+
+.relationship-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  text-decoration: none;
+  color: white;
+
+  background: rgba(255,255,255,0.08);
+
+  padding: 12px;
+  border-radius: 16px;
+
+  transition: 0.3s;
+}
+
+.relationship-card:hover {
+  transform: translateX(6px);
+  background: rgba(255,255,255,0.14);
+}
+
+.relationship-card img {
+  width: 65px;
+  height: 65px;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  border: 3px solid rgba(255,255,255,0.15);
+}
+
+.relationship-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.relationship-info strong {
+  font-size: 18px;
+}
+
+.relationship-info span {
+  opacity: 0.7;
+  margin-top: 3px;
+}
