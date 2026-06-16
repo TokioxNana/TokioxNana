@@ -307,10 +307,18 @@ footer {
 }
 
 /* Farb-Theme */
-.phone-blue {
-  background: linear-gradient(to bottom, #4cb3ff, #09294a);
+/* BLAU */
+.phone-blue{
+  background: linear-gradient(
+    180deg,
+    #4f93cf,
+    #245f95
+  );
+
+  border: 4px solid #1f4d77;
 }
 
+/* DUNKELGRÜN */
 .phone-green{
   background: linear-gradient(
     180deg,
@@ -319,10 +327,116 @@ footer {
   );
 
   border: 4px solid #243828;
+}
 
-  box-shadow:
-    0 0 20px rgba(0,0,0,0.4),
-    inset 0 0 15px rgba(255,255,255,0.15);
+/* SCHWARZ */
+.phone-black{
+  background: linear-gradient(
+    180deg,
+    #4b4b4b,
+    #181818
+  );
+
+  border: 4px solid #000;
+}
+
+/* WEISS */
+.phone-white{
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #d9d9d9
+  );
+
+  border: 4px solid #bdbdbd;
+}
+
+/* BORDEAUX */
+.phone-bordeaux{
+  background: linear-gradient(
+    180deg,
+    #8b3048,
+    #521726
+  );
+
+  border: 4px solid #3b101b;
+}
+
+/* ROSA */
+.phone-pink{
+  background: linear-gradient(
+    180deg,
+    #ffbfd7,
+    #ff8eb8
+  );
+
+  border: 4px solid #d96a95;
+}
+
+/* LILA */
+.phone-purple{
+  background: linear-gradient(
+    180deg,
+    #a88de0,
+    #6d4eb3
+  );
+
+  border: 4px solid #53388d;
+}
+
+/* ROT */
+.phone-red{
+  background: linear-gradient(
+    180deg,
+    #d24d4d,
+    #8e2323
+  );
+
+  border: 4px solid #5f1717;
+}
+
+/* GOLD */
+.phone-gold{
+  background: linear-gradient(
+    180deg,
+    #f2d37c,
+    #c79b29
+  );
+
+  border: 4px solid #8b6a17;
+}
+
+/* SILBER */
+.phone-silver{
+  background: linear-gradient(
+    180deg,
+    #f0f0f0,
+    #b9b9b9
+  );
+
+  border: 4px solid #8e8e8e;
+}
+
+/* TÜRKIS */
+.phone-turquoise{
+  background: linear-gradient(
+    180deg,
+    #79ddd6,
+    #2c9c95
+  );
+
+  border: 4px solid #206d68;
+}
+
+/* DUNKELBRAUN */
+.phone-brown{
+  background: linear-gradient(
+    180deg,
+    #8b6547,
+    #4f3524
+  );
+
+  border: 4px solid #382419;
 }
 
 /* ===== Sticker Sterne (nur 3 Stück) ===== */
