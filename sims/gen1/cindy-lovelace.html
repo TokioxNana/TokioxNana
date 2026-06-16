@@ -99,6 +99,157 @@
   </div>
 
 </details>
+
+  <!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" id="closeBtn">&times;</span>
+  <span class="arrow prev" id="prevBtn">&#10094;</span>
+
+  <div class="phone-frame phone-green">
+
+    <!-- CHARM / KETTE -->
+    <div class="phone-charm">
+      <div class="charm-chain"></div>
+      <div class="charm-heart"></div>
+    </div>
+
+    <!-- TOP -->
+    <div class="phone-top">
+      <div class="phone-speaker"></div>
+      <div class="phone-camera"></div>
+    </div>
+
+    <!-- SCREEN -->
+    <div class="phone-screen">
+      <img id="lightboxImg" src="" alt="Großes Foto">
+
+      <!-- LIKE BAR -->
+      <div class="like-bar">
+        <button id="likeBtn">♥</button>
+        <span id="likeCount">0</span>
+      </div>
+    </div>
+
+    <!-- BRAND -->
+    <div class="phone-brand">TokioPhone</div>
+
+    <!-- KEYBOARD -->
+    <div class="phone-keyboard">
+      <div class="key">1</div>
+      <div class="key">2<br><small>ABC</small></div>
+      <div class="key">3<br><small>DEF</small></div>
+
+      <div class="key">4<br><small>GHI</small></div>
+      <div class="key">5<br><small>JKL</small></div>
+      <div class="key">6<br><small>MNO</small></div>
+
+      <div class="key">7<br><small>PQRS</small></div>
+      <div class="key">8<br><small>TUV</small></div>
+      <div class="key">9<br><small>WXYZ</small></div>
+
+      <div class="key">*</div>
+      <div class="key">0</div>
+      <div class="key">#</div>
+    </div>
+
+    <!-- HOME BUTTON -->
+    <div class="phone-home"></div>
+
+  </div>
+
+  <span class="arrow next" id="nextBtn">&#10095;</span>
+</div>
+
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+
+  const closeBtn = document.getElementById("closeBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  const likeBtn = document.getElementById("likeBtn");
+  const likeCount = document.getElementById("likeCount");
+
+  let currentGalleryImages = [];
+  let currentIndex = 0;
+
+  function updateLikeUI() {
+    const imgSrc = currentGalleryImages[currentIndex].src;
+    const savedLikes = localStorage.getItem("likes_" + imgSrc);
+
+    if (savedLikes) {
+      likeCount.textContent = savedLikes;
+    } else {
+      likeCount.textContent = "0";
+    }
+  }
+
+  function openLightbox(images, index) {
+    currentGalleryImages = images;
+    currentIndex = index;
+    lightboxImg.src = currentGalleryImages[currentIndex].src;
+    lightbox.style.display = "flex";
+    updateLikeUI();
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = "none";
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % currentGalleryImages.length;
+    lightboxImg.src = currentGalleryImages[currentIndex].src;
+    updateLikeUI();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+    lightboxImg.src = currentGalleryImages[currentIndex].src;
+    updateLikeUI();
+  }
+
+  // Klick auf Bilder
+  document.querySelectorAll(".gallery").forEach((gallery) => {
+    const imgs = Array.from(gallery.querySelectorAll("img"));
+
+    imgs.forEach((img, index) => {
+      img.addEventListener("click", () => openLightbox(imgs, index));
+    });
+  });
+
+  // Buttons
+  closeBtn.addEventListener("click", closeLightbox);
+  nextBtn.addEventListener("click", showNext);
+  prevBtn.addEventListener("click", showPrev);
+
+  // Like Button
+  likeBtn.addEventListener("click", () => {
+    const imgSrc = currentGalleryImages[currentIndex].src;
+    let currentLikes = localStorage.getItem("likes_" + imgSrc);
+
+    if (!currentLikes) currentLikes = 0;
+
+    currentLikes = parseInt(currentLikes) + 1;
+    localStorage.setItem("likes_" + imgSrc, currentLikes);
+
+    likeCount.textContent = currentLikes;
+  });
+
+  // Klick auf Hintergrund schließt
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Tastatur Navigation
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") showNext();
+      if (e.key === "ArrowLeft") showPrev();
+    }
+  });
+</script>
   
 <div class="section" id="beziehungen">
 
